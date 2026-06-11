@@ -102,10 +102,7 @@ h1.hero-name {
   margin-bottom: 1.5rem;
   color: var(--text);
 }
-h1.hero-name em {
-  font-style: normal;
-  color: var(--text);
-}
+h1.hero-name em { font-style: normal; color: var(--text); }
 .hero-sub {
   font-size: 1rem; color: var(--muted);
   max-width: 480px; margin-bottom: 2.5rem;
@@ -113,7 +110,6 @@ h1.hero-name em {
 }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 8px;
-  
   background: #f0f0f0; color: #0a0a0a; text-decoration: none;
   padding: 11px 26px; border-radius: 100px;
   font-weight: 600; font-size: 0.85rem;
@@ -165,7 +161,6 @@ h2.section-title em { font-style: italic; color: var(--text); }
   overflow: hidden;
 }
 .about-card-header {
-  
   color: var(--text);
   padding: 1.5rem;
   display: flex; align-items: center; gap: 14px;
@@ -220,9 +215,9 @@ h2.section-title em { font-style: italic; color: var(--text); }
 .ic-1 { background: var(--accent-light); }
 .ic-2 { background: var(--accent2-light); }
 .ic-3 { background: var(--accent3-light); }
-.ic-4 { background: #f0ebf8; }
-.ic-5 { background: #fef6e8; }
-.ic-6 { background: #edf7ed; }
+.ic-4 { background: #1a1025; }
+.ic-5 { background: #1f1508; }
+.ic-6 { background: #0a1f0a; }
 .project-title {
   font-family: var(--font-body);
   font-size: 0.95rem; font-weight: 700;
@@ -236,6 +231,23 @@ h2.section-title em { font-style: italic; color: var(--text); }
   border: 1px solid var(--border2);
   color: var(--muted); background: var(--bg);
 }
+
+/* ── PROJECT BUTTONS ROW ── */
+.project-actions {
+  margin-top: 1.2rem;
+}
+.btn-report {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--accent-light); border: 1px solid var(--accent);
+  border-radius: 100px;
+  padding: 6px 14px;
+  color: var(--accent); font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+  font-family: var(--font-body);
+}
+.btn-report:hover { background: var(--accent); color: #fff; }
+.btn-report svg { width:13px; height:13px; flex-shrink:0; }
+
 
 /* ── SKILLS ── */
 #skills { background: var(--bg2); }
@@ -295,12 +307,82 @@ h2.section-title em { font-style: italic; color: var(--text); }
 
 /* ── FOOTER ── */
 footer {
-  
   color: rgba(255,255,255,0.5);
   padding: 2rem 2.5rem;
   text-align: center; font-size: 0.78rem;
 }
 footer strong { color: rgba(255,255,255,0.9); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  width: 100%; max-width: 760px;
+  max-height: 85vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+}
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.modal-title {
+  font-family: var(--font-body);
+  font-size: 0.9rem; font-weight: 700; color: var(--text);
+}
+.modal-sub { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+.modal-close {
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-size: 1.3rem; line-height: 1;
+  padding: 4px 8px; border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.modal-close:hover { color: var(--text); background: var(--border); }
+.modal-body {
+  overflow-y: auto; padding: 1.75rem 1.75rem;
+  flex: 1;
+  font-size: 0.85rem; color: var(--muted); line-height: 1.85;
+}
+.modal-body h3 {
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--accent); margin: 1.4rem 0 0.5rem;
+}
+.modal-body h3:first-child { margin-top: 0; }
+.modal-body h4 {
+  font-size: 0.82rem; font-weight: 700; color: var(--text);
+  margin: 1rem 0 0.3rem;
+}
+.modal-body p { margin-bottom: 0.7rem; }
+.modal-body ul { padding-left: 1.3rem; margin-bottom: 0.7rem; }
+.modal-body li { margin-bottom: 0.35rem; }
+.modal-body strong { color: var(--text); }
+.modal-body em { color: #aaa; font-style: italic; }
+.modal-body code {
+  background: #0f1e35; color: var(--accent);
+  padding: 2px 7px; border-radius: 4px; font-size: 0.8rem;
+}
+.modal-body table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.78rem; }
+.modal-body th { background: var(--surface); color: var(--text); padding: 8px 10px; text-align: left; font-weight: 600; border-bottom: 1px solid var(--border2); }
+.modal-body td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.modal-body .divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+.modal-badge { display: inline-block; background: var(--accent-light); color: var(--accent); border-radius: 6px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600; margin: 2px; }
+.modal-badge.green { background: var(--accent2-light); color: var(--accent2); }
+.modal-badge.orange { background: var(--accent3-light); color: var(--accent3); }
+.modal-badge.red { background: #1a0505; color: #f07070; }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -325,6 +407,7 @@ footer strong { color: rgba(255,255,255,0.9); }
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
   .hero-deco { display: none; }
   .projects-intro { flex-direction: column; }
+  .modal-overlay { padding: 0.75rem; }
 }
 </style>
 </head>
@@ -394,26 +477,13 @@ footer strong { color: rgba(255,255,255,0.9); }
             </div>
           </div>
           <div class="info-list">
-            <div class="info-row">
-              <span class="info-label">Trường</span>
-              <span class="info-value">ĐH Công nghệ – ĐHQG Hà Nội</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Chuyên ngành</span>
-              <span class="info-value">Hệ Thống Thông Tin</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Môn học</span>
-              <span class="info-value">Nhập môn Công nghệ số &amp; AI</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Năm học</span>
-              <span class="info-value">2025 – 2026</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Lĩnh vực</span>
-              <span class="info-value">AI Tools · Research · Prompt Engineering</span>
-            </div>
+            <div class="info-row"><span class="info-label">Mã sinh viên</span><span class="info-value">25023221</span></div>
+            <div class="info-row"><span class="info-label">Nhóm</span><span class="info-value">Nhóm 17</span></div>
+            <div class="info-row"><span class="info-label">Trường</span><span class="info-value">ĐH Công nghệ – ĐHQG Hà Nội</span></div>
+            <div class="info-row"><span class="info-label">Chuyên ngành</span><span class="info-value">Hệ Thống Thông Tin</span></div>
+            <div class="info-row"><span class="info-label">Môn học</span><span class="info-value">Nhập môn Công nghệ số &amp; AI</span></div>
+            <div class="info-row"><span class="info-label">Năm học</span><span class="info-value">2025 – 2026</span></div>
+            <div class="info-row"><span class="info-label">Lĩnh vực</span><span class="info-value">AI Tools · Research · Prompt Engineering</span></div>
           </div>
         </div>
       </div>
@@ -440,12 +510,12 @@ footer strong { color: rgba(255,255,255,0.9); }
           <div class="project-icon ic-1">🗂️</div>
         </div>
         <div class="project-title">Thao tác cơ bản với tệp tin và thư mục</div>
-        <p class="project-desc">Xây dựng cấu trúc thư mục tối ưu theo nguyên tắc đặt tên khoa học: <code style="background:#ebf2fb;padding:1px 5px;border-radius:4px;font-size:0.75rem;color:#2563a8">ThucHanh_HoTenSinhVien</code>. Thực hành tạo, đổi tên, sao chép, di chuyển và xoá tệp tin trên Windows File Explorer. Chụp ảnh màn hình minh hoạ kèm giải thích quy tắc đặt tên.</p>
-        <div class="project-tags">
-          <span class="tag">Windows File Explorer</span>
-          <span class="tag">Quản lý tệp tin</span>
-        </div>
-      </div>
+        <p class="project-desc">Thực hành 12 thao tác quản lý tệp tin trên Windows File Explorer: tạo, đổi tên, sao chép, di chuyển, xóa và khôi phục.</p>
+        <div class="project-tags"><span class="tag">Windows File Explorer</span><span class="tag">Copy &amp; Paste</span><span class="tag">Recycle Bin</span></div>
+        <button class="btn-report" onclick="openModal('modal1')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 2h6l3 3v9H4V2z"/><path d="M10 2v3h3"/><path d="M6 7h5M6 9.5h5M6 12h3"/></svg>
+            Xem báo cáo
+          </button>      </div>
 
       <!-- Bài 2 -->
       <div class="project-card">
@@ -454,14 +524,12 @@ footer strong { color: rgba(255,255,255,0.9); }
           <div class="project-icon ic-2">🔍</div>
         </div>
         <div class="project-title">Tìm kiếm và đánh giá thông tin học thuật</div>
-        <p class="project-desc">Sử dụng các toán tử tìm kiếm nâng cao (AND, OR, NOT, dấu nháy kép) trên Google Scholar, PubMed và Elicit/Consensus. Đánh giá độ tin cậy của nguồn theo tiêu chí CRAAP. Xây dựng bảng so sánh 5 bài báo peer-reviewed về AI trong Y tế (2021–2025).</p>
-        <div class="project-tags">
-          <span class="tag">Google Scholar</span>
-          <span class="tag">Elicit</span>
-          <span class="tag">Consensus</span>
-          <span class="tag">CRAAP Test</span>
-        </div>
-      </div>
+        <p class="project-desc">Chủ đề: Hiệu suất thuật toán Garbage Collection trong JVM. Tổng hợp và đánh giá 10 tài liệu từ IEEE, ACM, CRC Press, O'Reilly, Oracle Docs.</p>
+        <div class="project-tags"><span class="tag">IEEE Xplore</span><span class="tag">ACM Digital Library</span><span class="tag">Harvard Citation</span></div>
+        <button class="btn-report" onclick="openModal('modal2')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 2h6l3 3v9H4V2z"/><path d="M10 2v3h3"/><path d="M6 7h5M6 9.5h5M6 12h3"/></svg>
+            Xem báo cáo
+          </button>      </div>
 
       <!-- Bài 3 -->
       <div class="project-card">
@@ -470,14 +538,12 @@ footer strong { color: rgba(255,255,255,0.9); }
           <div class="project-icon ic-3">💬</div>
         </div>
         <div class="project-title">Viết Prompt hiệu quả cho các tác vụ học tập</div>
-        <p class="project-desc">Nghiên cứu kỹ thuật Prompt Engineering: Zero-shot, Few-shot, Chain-of-Thought. So sánh Prompt ban đầu và Prompt cải tiến, phân tích sự khác biệt trong chất lượng đầu ra từ các mô hình ngôn ngữ lớn (ChatGPT, Gemini, Claude). Rút ra bộ quy tắc viết Prompt cá nhân.</p>
-        <div class="project-tags">
-          <span class="tag">Prompt Engineering</span>
-          <span class="tag">ChatGPT</span>
-          <span class="tag">Gemini</span>
-          <span class="tag">Claude</span>
-        </div>
-      </div>
+        <p class="project-desc">Phân tích 3 cấp độ prompt (cơ bản → cải tiến → nâng cao) qua 3 tác vụ: tóm tắt bài báo, giải thích khái niệm, tạo câu hỏi ôn tập.</p>
+        <div class="project-tags"><span class="tag">Chain-of-Thought</span><span class="tag">Few-shot</span><span class="tag">Role Prompting</span></div>
+        <button class="btn-report" onclick="openModal('modal3')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 2h6l3 3v9H4V2z"/><path d="M10 2v3h3"/><path d="M6 7h5M6 9.5h5M6 12h3"/></svg>
+            Xem báo cáo
+          </button>      </div>
 
       <!-- Bài 4 -->
       <div class="project-card">
@@ -486,13 +552,12 @@ footer strong { color: rgba(255,255,255,0.9); }
           <div class="project-icon ic-4">🤝</div>
         </div>
         <div class="project-title">Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</div>
-        <p class="project-desc">Thiết lập hệ sinh thái làm việc nhóm đa nền tảng: Trello (Kanban board 4 cột), Google Drive (lưu trữ), và Zalo/Messenger (giao tiếp). Phân công vai trò rõ ràng, theo dõi tiến độ theo nguyên tắc "đúng công cụ cho đúng mục đích". Xuất báo cáo minh chứng hợp tác.</p>
-        <div class="project-tags">
-          <span class="tag">Trello</span>
-          <span class="tag">Google Drive</span>
-          <span class="tag">Quản lý dự án</span>
-        </div>
-      </div>
+        <p class="project-desc">Nhóm 17 — sản xuất video giáo dục 3–4 phút về "Kỹ năng viết Prompt". Cá nhân đảm nhận vai trò TV4: Video Production.</p>
+        <div class="project-tags"><span class="tag">Trello</span><span class="tag">Google Drive</span><span class="tag">Discord</span><span class="tag">DaVinci Resolve</span></div>
+        <button class="btn-report" onclick="openModal('modal4')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 2h6l3 3v9H4V2z"/><path d="M10 2v3h3"/><path d="M6 7h5M6 9.5h5M6 12h3"/></svg>
+            Xem báo cáo
+          </button>      </div>
 
       <!-- Bài 5 -->
       <div class="project-card">
@@ -501,13 +566,9 @@ footer strong { color: rgba(255,255,255,0.9); }
           <div class="project-icon ic-5">🎨</div>
         </div>
         <div class="project-title">Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</div>
-        <p class="project-desc">Khám phá AI tạo sinh (Generative AI): ChatGPT, Midjourney, Gemini trong việc tạo nội dung số. Phân tích chủ đề "AI tạo sinh — Cơ hội hay thách thức cho ngành sáng tạo nội dung?". Trình bày sản phẩm nội dung số hoàn thiện (bài viết, hình ảnh) được hỗ trợ bởi AI.</p>
-        <div class="project-tags">
-          <span class="tag">Generative AI</span>
-          <span class="tag">Midjourney</span>
-          <span class="tag">Sáng tạo nội dung</span>
-        </div>
-      </div>
+        <p class="project-desc">Sản phẩm: Infographic về hiện tượng Greenwashing. Quy trình 3 bước dùng Gemini, DALL-E, Dreamina và Canva AI.</p>
+        <div class="project-tags"><span class="tag">Gemini</span><span class="tag">DALL-E</span><span class="tag">Dreamina</span><span class="tag">Canva AI</span></div>
+        <div class="project-actions">        </div>      </div>
 
       <!-- Bài 6 -->
       <div class="project-card">
@@ -516,13 +577,12 @@ footer strong { color: rgba(255,255,255,0.9); }
           <div class="project-icon ic-6">⚖️</div>
         </div>
         <div class="project-title">Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</div>
-        <p class="project-desc">Nghiên cứu chính sách liêm chính học thuật của ĐHQG Hà Nội liên quan đến AI. Phân tích ranh giới giữa sử dụng AI hỗ trợ (hợp lệ) và lạm dụng AI (gian lận). Xây dựng bộ nguyên tắc cá nhân về sử dụng AI có đạo đức và trách nhiệm.</p>
-        <div class="project-tags">
-          <span class="tag">AI Ethics</span>
-          <span class="tag">Academic Integrity</span>
-          <span class="tag">Responsible AI</span>
-        </div>
-      </div>
+        <p class="project-desc">Nghiên cứu chính sách AI của ĐHQG Hà Nội. Thực hành với bài luận thật. Xây dựng 6 nguyên tắc cá nhân.</p>
+        <div class="project-tags"><span class="tag">AI Ethics</span><span class="tag">Academic Integrity</span><span class="tag">6 Nguyên tắc</span></div>
+        <button class="btn-report" onclick="openModal('modal6')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 2h6l3 3v9H4V2z"/><path d="M10 2v3h3"/><path d="M6 7h5M6 9.5h5M6 12h3"/></svg>
+            Xem báo cáo
+          </button>      </div>
 
     </div>
   </div>
@@ -531,69 +591,44 @@ footer strong { color: rgba(255,255,255,0.9); }
 <!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <span class="section-tag">Kỹ năng</span>
-    <h2 class="section-title">Kỹ năng số <em>đã tích lũy</em></h2>
-    <p class="section-desc">Các kỹ năng được hình thành và thực hành qua từng bài tập trong học kỳ.</p>
+    <span class="section-tag">Năng lực</span>
+    <h2 class="section-title">Kỹ năng số &amp;<br><em>công cụ đã dùng</em></h2>
     <div class="skills-wrap">
       <div class="skill-group">
         <div class="sg-header">
-          <span class="sg-icon">🖥️</span>
-          <span class="sg-title">Kỹ năng máy tính cơ bản</span>
-        </div>
-        <div class="sk-item">Quản lý tệp tin &amp; thư mục</div>
-        <div class="sk-item">Đặt tên khoa học, có hệ thống</div>
-        <div class="sk-item">Sử dụng Windows &amp; công cụ Office</div>
-        <div class="sk-item">Chụp &amp; chú thích ảnh màn hình</div>
-      </div>
-      <div class="skill-group">
-        <div class="sg-header">
-          <span class="sg-icon">🔎</span>
-          <span class="sg-title">Tìm kiếm &amp; đánh giá thông tin</span>
-        </div>
-        <div class="sk-item">Toán tử tìm kiếm nâng cao</div>
-        <div class="sk-item">Google Scholar, PubMed</div>
-        <div class="sk-item">Elicit &amp; Consensus (AI search)</div>
-        <div class="sk-item">Đánh giá nguồn theo CRAAP</div>
-      </div>
-      <div class="skill-group">
-        <div class="sg-header">
           <span class="sg-icon">🤖</span>
-          <span class="sg-title">Kỹ năng sử dụng AI</span>
+          <span class="sg-title">AI &amp; Prompt</span>
         </div>
-        <div class="sk-item">Prompt Engineering hiệu quả</div>
-        <div class="sk-item">AI tạo sinh: ChatGPT, Gemini</div>
-        <div class="sk-item">Tạo nội dung số hỗ trợ AI</div>
-        <div class="sk-item">Sử dụng AI có đạo đức</div>
+        <div class="sk-item">ChatGPT / Gemini</div>
+        <div class="sk-item">DALL-E / Dreamina</div>
+        <div class="sk-item">Canva AI</div>
+        <div class="sk-item">Prompt Engineering</div>
+        <div class="sk-item">Chain-of-Thought</div>
+        <div class="sk-item">Few-shot prompting</div>
       </div>
       <div class="skill-group">
         <div class="sg-header">
           <span class="sg-icon">🤝</span>
-          <span class="sg-title">Hợp tác &amp; quản lý dự án</span>
+          <span class="sg-title">Hợp tác &amp; Dự án</span>
         </div>
-        <div class="sk-item">Trello — Kanban board</div>
-        <div class="sk-item">Google Drive &amp; Docs</div>
-        <div class="sk-item">Phối hợp nhóm trực tuyến</div>
-        <div class="sk-item">Viết báo cáo cá nhân</div>
+        <div class="sk-item">Trello (Kanban)</div>
+        <div class="sk-item">Google Drive</div>
+        <div class="sk-item">Google Docs</div>
+        <div class="sk-item">Discord</div>
+        <div class="sk-item">DaVinci Resolve</div>
+        <div class="sk-item">CapCut</div>
       </div>
       <div class="skill-group">
         <div class="sg-header">
-          <span class="sg-icon">📊</span>
-          <span class="sg-title">Tổng hợp &amp; phân tích</span>
+          <span class="sg-icon">📚</span>
+          <span class="sg-title">Nghiên cứu &amp; Viết</span>
         </div>
-        <div class="sk-item">Systematic review tài liệu</div>
-        <div class="sk-item">Bảng so sánh đa tiêu chí</div>
-        <div class="sk-item">Tóm tắt &amp; nhận xét khoa học</div>
-        <div class="sk-item">Trình bày dữ liệu rõ ràng</div>
-      </div>
-      <div class="skill-group">
-        <div class="sg-header">
-          <span class="sg-icon">🌐</span>
-          <span class="sg-title">Năng lực số chung</span>
-        </div>
-        <div class="sk-item">Xây dựng Portfolio số</div>
-        <div class="sk-item">Tư duy phản biện với AI</div>
-        <div class="sk-item">Liêm chính học thuật</div>
-        <div class="sk-item">Tự học &amp; tự tổ chức</div>
+        <div class="sk-item">IEEE Xplore / ACM</div>
+        <div class="sk-item">Google Scholar</div>
+        <div class="sk-item">Harvard Citation</div>
+        <div class="sk-item">APA Citation</div>
+        <div class="sk-item">Academic integrity</div>
+        <div class="sk-item">Đánh giá nguồn tin</div>
       </div>
     </div>
   </div>
@@ -602,22 +637,22 @@ footer strong { color: rgba(255,255,255,0.9); }
 <!-- REFLECTION -->
 <section id="reflection">
   <div class="container">
-    <span class="section-tag">Tổng kết</span>
-    <h2 class="section-title">Trải nghiệm &amp; <em>cảm nhận</em></h2>
-    <p class="section-desc">Nhìn lại hành trình học tập và những điều rút ra từ môn học.</p>
+    <span class="section-tag">Nhìn lại</span>
+    <h2 class="section-title"><em>Tổng kết</em> hành trình</h2>
     <div class="reflection-wrap">
       <div class="reflection-pull">
-        "Kỹ năng số không thể tách rời khỏi năng lực chuyên môn."
+        "Công nghệ số không chỉ là công cụ — đó là ngôn ngữ của thế kỷ 21."
       </div>
       <div class="reflection-body">
-        <p>Môn <strong>Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</strong> đã mở ra cho mình một góc nhìn hoàn toàn mới về vai trò của công nghệ trong học tập và nghiên cứu. Là sinh viên Hệ Thống Thông Tin, mình vốn quen với tư duy định lượng và thực nghiệm — nhưng môn học này đã giúp mình hiểu rằng kỹ năng số không thể tách rời khỏi năng lực chuyên môn.</p>
-        <p>Bài tập khiến mình tâm đắc nhất là <strong>Bài 2 — Tìm kiếm học thuật</strong> và <strong>Bài 6 — AI có trách nhiệm</strong>. Việc phân tích 5 bài báo về AI trong Y tế không chỉ giúp mình hiểu về công nghệ mà còn rèn luyện tư duy đánh giá nguồn tài liệu — kỹ năng thiết yếu cho nghiên cứu khoa học sau này. Bài 6 thì buộc mình phải tự hỏi: "Mình đang dùng AI như thế nào — và điều đó có trung thực không?"</p>
-        <p>Thách thức lớn nhất là việc tổng hợp kiến thức từ nhiều lĩnh vực khác nhau và trình bày một cách mạch lạc, có cấu trúc. Nhưng chính quá trình đó đã giúp mình hình thành thói quen làm việc có hệ thống — điều mà mình tin sẽ theo suốt hành trình học tập và nghề nghiệp phía trước.</p>
+        <p>Qua 6 bài tập của môn học <strong>Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</strong>, mình đã có cơ hội trải nghiệm toàn diện hành trình từ các kỹ năng số căn bản đến tư duy phản biện về đạo đức AI — một hành trình mà mình tin rằng sẽ đồng hành cùng mình xuyên suốt sự nghiệp học tập và làm việc sau này.</p>
+        <p><strong>Điều quan trọng nhất mình học được</strong> không phải là cách sử dụng một công cụ cụ thể nào đó, mà là tư duy về việc <em>tại sao</em> và <em>khi nào</em> nên dùng chúng. Ví dụ, thông qua Bài 3, mình nhận ra rằng chất lượng đầu ra của AI phụ thuộc trực tiếp vào chất lượng của prompt — điều này dạy mình rằng tư duy rõ ràng, có cấu trúc là nền tảng của mọi tương tác hiệu quả.</p>
+        <p><strong>Thách thức lớn nhất</strong> là Bài 4 — làm việc nhóm trong môi trường kỹ thuật số đòi hỏi không chỉ kỹ năng công nghệ mà còn cả kỹ năng giao tiếp, quản lý thời gian và tinh thần trách nhiệm với cả nhóm.</p>
+        <p><strong>Nhìn về phía trước</strong>, mình muốn đào sâu hơn về Prompt Engineering và khám phá cách AI có thể hỗ trợ nghiên cứu khoa học theo hướng có đạo đức và minh bạch — không phải để thay thế tư duy của bản thân, mà để khuếch đại nó.</p>
         <div class="reflection-sig">
           <div class="sig-avatar">P</div>
           <div>
-            <div class="sig-name">Phạm Anh Đức</div>
-            <div class="sig-sub">Hệ Thống Thông Tin · Đại học Công nghệ – ĐHQG Hà Nội · Portfolio 2025–2026</div>
+            <div class="sig-name">Phạm Anh Đức · 25023221</div>
+            <div class="sig-sub">Hệ Thống Thông Tin · ĐHQG Hà Nội · 2025–2026</div>
           </div>
         </div>
       </div>
@@ -627,9 +662,286 @@ footer strong { color: rgba(255,255,255,0.9); }
 
 <!-- FOOTER -->
 <footer>
-  <strong>Phạm Anh Đức</strong> · Hệ Thống Thông Tin · Đại học Công nghệ – ĐHQG Hà Nội · Portfolio 2025–2026<br>
-  <span style="margin-top:6px;display:block">Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</span>
+  <p>© 2026 <strong>Phạm Anh Đức</strong> · Portfolio môn Nhập môn Công nghệ số &amp; AI · Nhóm 17</p>
 </footer>
 
+<!-- ═══════════════════════════════════════════
+     MODALS — NỘI DUNG BÁO CÁO TỪNG BÀI
+═══════════════════════════════════════════ -->
+
+<!-- MODAL 1: Bài 1 - File Explorer -->
+<div class="modal-overlay" id="modal1" onclick="closeModalOverlay(event, 'modal1')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">📄 Báo cáo Bài 1 · Mục 1.4</div>
+        <div class="modal-sub">Thao tác cơ bản với tệp tin và thư mục — Windows File Explorer</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>📋 12 Bước thực hiện</h3>
+      <ul>
+        <li><strong>Bước 1 — Mở File Explorer:</strong> Nhấn tổ hợp phím <code>Windows + E</code> hoặc nhấp vào biểu tượng thư mục màu vàng trên thanh tác vụ.</li>
+        <li><strong>Bước 2 — Truy cập ổ đĩa/thư mục:</strong> Ở cột bên trái, nhấp vào <em>This PC</em>, sau đó nhấp đúp vào một ổ đĩa không phải ổ hệ thống.</li>
+        <li><strong>Bước 3 — Tạo thư mục mới:</strong> Nhấp chuột phải vào khoảng trống → chọn <em>New → Folder</em>. Đặt tên thư mục là <code>ThucHanh_PhamAnhDuc</code>. Nhấn Enter.</li>
+        <li><strong>Bước 4 — Vào thư mục vừa tạo:</strong> Nhấp đúp vào thư mục <code>ThucHanh_PhamAnhDuc</code>.</li>
+        <li><strong>Bước 5 — Tạo tệp tin văn bản:</strong> Nhấp chuột phải vào khoảng trống → <em>New → Text Document</em>. Đặt tên là <code>GhiChu.txt</code>. Nhấn Enter.</li>
+        <li><strong>Bước 6 — Đổi tên tệp tin:</strong> Nhấp chuột phải vào tệp <code>GhiChu.txt</code> → chọn <em>Rename</em>. Đổi tên thành <code>GhiChuQuanTrong.txt</code>. Nhấn Enter.</li>
+        <li><strong>Bước 7 — Tạo thư mục con:</strong> Trong thư mục ThucHanh, nhấp chuột phải → <em>New → Folder</em>. Đặt tên là <code>TaiLieu</code>.</li>
+        <li><strong>Bước 8 — Sao chép (Copy &amp; Paste):</strong> Nhấp chuột phải vào <code>GhiChuQuanTrong.txt</code> → <em>Copy</em> (hoặc <code>Ctrl+C</code>). Vào thư mục TaiLieu → chuột phải → <em>Paste</em> (<code>Ctrl+V</code>). Bây giờ có một bản sao của tệp trong thư mục TaiLieu.</li>
+        <li><strong>Bước 9 — Di chuyển (Cut &amp; Paste):</strong> Quay lại thư mục ThucHanh, tạo một tệp mới tên là <code>DiChuyen.txt</code>. Chuột phải → <em>Cut</em> (<code>Ctrl+X</code>). Vào TaiLieu → Paste (<code>Ctrl+V</code>). Tệp gốc đã biến mất khỏi vị trí cũ và chỉ còn ở vị trí mới.</li>
+        <li><strong>Bước 10 — Xóa tệp tin:</strong> Trong thư mục TaiLieu, nhấp chuột phải vào <code>GhiChuQuanTrong.txt</code> → chọn <em>Delete</em>. Tệp sẽ được chuyển vào Thùng rác (Recycle Bin).</li>
+        <li><strong>Bước 11 — Xóa vĩnh viễn:</strong> Chọn tệp <code>DiChuyen.txt</code>, nhấn giữ phím <code>Shift</code> và nhấn <code>Delete</code>. Một cảnh báo sẽ hiện ra. Nếu đồng ý, tệp sẽ bị xóa vĩnh viễn mà không qua Thùng rác.</li>
+        <li><strong>Bước 12 — Khôi phục từ Thùng rác:</strong> Tìm biểu tượng Recycle Bin trên màn hình nền, nhấp đúp để mở. Tìm tệp <code>GhiChuQuanTrong.txt</code> đã xóa, nhấp chuột phải → <em>Restore</em>. Tệp sẽ quay trở lại vị trí ban đầu.</li>
+      </ul>
+      <hr class="divider">
+      <span class="modal-badge green">✓ Hoàn thành 12/12 bước</span>
+      <span class="modal-badge">Phạm Anh Đức · 25023221</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: Bài 2 - Tìm kiếm học thuật -->
+<div class="modal-overlay" id="modal2" onclick="closeModalOverlay(event, 'modal2')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">📄 Báo cáo Bài 2 · Mục 2.4</div>
+        <div class="modal-sub">Tìm kiếm và đánh giá thông tin học thuật — Garbage Collection trong JVM</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>🔬 Chủ đề &amp; Câu hỏi nghiên cứu</h3>
+      <p>Đánh giá hiệu suất và tác động của các thuật toán Thu gom rác (Garbage Collection) trong Java Virtual Machine (JVM) đối với ứng dụng quy mô lớn.</p>
+
+      <h3>📚 I. Các nguồn thông tin đã khai thác (4 loại nguồn)</h3>
+      <ul>
+        <li><strong>Cơ sở dữ liệu học thuật:</strong> IEEE Xplore, ACM Digital Library.</li>
+        <li><strong>Tạp chí khoa học chuyên ngành:</strong> ACM OOPSLA, ISMM Proceedings, IEEE Transactions on Software Engineering.</li>
+        <li><strong>Sách chuyên khảo:</strong> CRC Press, O'Reilly Media, Addison-Wesley Professional.</li>
+        <li><strong>Nguồn mở trên internet:</strong> Oracle Java Documentation.</li>
+      </ul>
+
+      <h3>⚖️ II. Đánh giá độ tin cậy của các nguồn</h3>
+      <h4>1. Cơ sở dữ liệu học thuật (IEEE Xplore, ACM Digital Library)</h4>
+      <p><span class="modal-badge green">Rất cao</span> Đây là nền tảng cốt lõi để thu thập tài liệu. ACM và IEEE là hai cơ sở dữ liệu danh tiếng nhất thế giới trong mảng Khoa học Máy tính. ACM có thuật toán thống kê trích dẫn cực kỳ minh bạch. Tuy nhiên cần kết hợp các tiêu chí lọc khắt khe khi tra cứu.</p>
+      <h4>2. Tạp chí khoa học chuyên ngành</h4>
+      <p><span class="modal-badge green">Cực kỳ cao</span> Nhóm này chiếm tỷ trọng lớn nhất (6/10 tài liệu). Tác giả đều là giáo sư, tiến sĩ từ các trường đại học hoặc kỹ sư cấp cao. Phương pháp nghiên cứu cực kỳ chặt chẽ (sử dụng thí nghiệm benchmark DaCapo). Tuy nhiên tính cập nhật đôi khi bị hạn chế bởi chu kỳ bình duyệt kéo dài.</p>
+      <h4>3. Sách chuyên khảo</h4>
+      <p><span class="modal-badge">Cao</span> Được viết bởi chuyên gia đầu ngành và bảo chứng bởi các NXB danh tiếng (CRC Press, O'Reilly). Thiên về phân tích lý thuyết hệ thống. Tính cập nhật thường chậm hơn tốc độ phát triển công nghệ.</p>
+      <h4>4. Nguồn mở trên internet</h4>
+      <p><span class="modal-badge orange">Khá</span> Đại diện bởi tài liệu chính thức của Oracle. Ưu điểm tuyệt đối là tính cập nhật rất xuất sắc. Dù vậy, không trải qua quy trình bình duyệt độc lập.</p>
+
+      <h3>📊 III. Bảng đánh giá 10 tài liệu</h3>
+      <table>
+        <tr><th>STT</th><th>Tên tài liệu / Tác giả</th><th>Nguồn</th><th>Năm</th><th>Xếp hạng</th></tr>
+        <tr><td>1</td><td>Garbage-First GC (Detlefs et al.)</td><td>ISMM</td><td>2004</td><td><span class="modal-badge green">Xuất sắc</span></td></tr>
+        <tr><td>2</td><td>Quantifying Performance of GC (Hertz &amp; Berger)</td><td>ACM OOPSLA</td><td>2005</td><td><span class="modal-badge green">Xuất sắc</span></td></tr>
+        <tr><td>3</td><td>C4: Continuously Concurrent Compacting Collector (Tene et al.)</td><td>ISMM</td><td>2011</td><td><span class="modal-badge green">Xuất sắc</span></td></tr>
+        <tr><td>4</td><td>The DaCapo Benchmarks (Blackburn et al.)</td><td>ACM OOPSLA</td><td>2006</td><td><span class="modal-badge green">Xuất sắc</span></td></tr>
+        <tr><td>5</td><td>ZGC: Scalable Low-Latency GC (Koren et al.)</td><td>IEEE Trans.</td><td>2021</td><td><span class="modal-badge green">Xuất sắc</span></td></tr>
+        <tr><td>6</td><td>Scalability of GC on Multicores (Gidra et al.)</td><td>ACM ASPLOS</td><td>2013</td><td><span class="modal-badge">Tốt</span></td></tr>
+        <tr><td>7</td><td>The GC Handbook (Jones et al.)</td><td>CRC Press</td><td>2011</td><td><span class="modal-badge green">Xuất sắc</span></td></tr>
+        <tr><td>8</td><td>Java Performance (Oaks, S.)</td><td>O'Reilly</td><td>2020</td><td><span class="modal-badge">Tốt</span></td></tr>
+        <tr><td>9</td><td>Java Concurrency in Practice (Goetz et al.)</td><td>Addison-Wesley</td><td>2006</td><td><span class="modal-badge">Tốt</span></td></tr>
+        <tr><td>10</td><td>HotSpot VM GC Tuning Guide (Oracle)</td><td>Oracle Docs</td><td>2023</td><td><span class="modal-badge orange">Khá</span></td></tr>
+      </table>
+
+      <h3>📝 IV. Danh mục tài liệu tham khảo (Harvard)</h3>
+      <p><em>Blackburn, S.M. và cộng sự, 2006. The DaCapo benchmarks: Java benchmarking development and analysis. OOPSLA, tr. 169–190.</em></p>
+      <p><em>Detlefs, D., Flood, C., Heller, S. và Printezis, T., 2004. Garbage-first garbage collection. ISMM Proceedings, tr. 37–48.</em></p>
+      <p><em>Koren, T., Österlund, E. và Karlsson, J., 2021. ZGC: A scalable low-latency garbage collector. IEEE Transactions on Software Engineering, 48(12), tr. 4500–4515.</em></p>
+      <p><em>Oracle, 2023. HotSpot Virtual Machine Garbage Collection Tuning Guide. [trực tuyến] Có tại: https://docs.oracle.com/en/java/javase/21/gctuning/</em></p>
+      <hr class="divider">
+      <span class="modal-badge green">✓ 10 tài liệu · Chuẩn Harvard</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: Bài 3 - Prompt Engineering -->
+<div class="modal-overlay" id="modal3" onclick="closeModalOverlay(event, 'modal3')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">📄 Báo cáo Bài 3 · Mục 3.4</div>
+        <div class="modal-sub">Tối ưu hóa Prompt Engineering trong học thuật</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>📌 Tác vụ 1: Tóm tắt tài liệu học thuật</h3>
+      <h4>Prompt cơ bản</h4>
+      <p><em>"Tóm tắt bài viết này cho tôi."</em></p>
+      <p>→ <strong>Nhận xét:</strong> Ngắn gọn nhưng quá chung chung, thiếu các chi tiết kỹ thuật và không có cấu trúc rõ ràng cho một báo cáo học thuật.</p>
+      <h4>Prompt cải tiến</h4>
+      <p><em>"Tóm tắt các ý chính của bài viết dưới đây trong khoảng 200 chữ. Chia thành các đầu dòng rõ ràng và giữ lại các thuật ngữ chuyên môn quan trọng."</em></p>
+      <p>→ <strong>Nhận xét:</strong> Đã tốt hơn nhiều. Có cấu trúc, dễ đọc và giữ được các từ khóa chuyên ngành cần thiết cho sinh viên.</p>
+      <h4>Prompt nâng cao (Role + Structured)</h4>
+      <p><em>"Bạn là một chuyên gia nghiên cứu khoa học. Hãy đọc văn bản sau và tóm tắt theo cấu trúc: 1. Mục tiêu nghiên cứu; 2. Phương pháp; 3. Kết quả chính; 4. Hạn chế. Sử dụng tông giọng khách quan và cô đọng."</em></p>
+      <p>→ <strong>Nhận xét:</strong> Đây là prompt hiệu quả nhất. Nó phân loại thông tin chính xác theo tư duy nghiên cứu, cực kỳ hữu ích để đưa vào tiểu luận hoặc tiểu mục tham khảo.</p>
+
+      <h3>📌 Tác vụ 2: Giải thích khái niệm phức tạp (Ma trận)</h3>
+      <h4>Prompt nâng cao (Chain-of-Thought + Analogy)</h4>
+      <p><em>"Hãy đóng vai một giảng viên đại học tâm huyết. Giải thích khái niệm 'Ma trận' cho một người chưa biết gì bằng cách: Bước 1: Dùng một ẩn dụ đời thường. Bước 2: Định nghĩa toán học cơ bản. Bước 3: Giải thích tại sao nó quan trọng trong lập trình đồ họa. Hãy đảm bảo giải thích từng bước một."</em></p>
+      <p>→ Kết quả AI: Bước 1 dùng ẩn dụ kho hàng (hàng = loại sản phẩm, cột = kích cỡ S/M/L). Bước 2 định nghĩa toán học chuẩn xác. Bước 3 giải thích Ma trận tọa độ trong game (Pikachu xoay 3D). Gắn kết hơn với sinh viên kỹ thuật.</p>
+
+      <h3>📌 Tác vụ 3: Tạo câu hỏi ôn tập (Lịch sử AI)</h3>
+      <h4>Prompt nâng cao (Few-shot + Context)</h4>
+      <p><em>"Dựa trên nội dung chương 1 tôi cung cấp, hãy tạo bộ câu hỏi ôn tập gồm: 3 câu trắc nghiệm (mức độ nhận biết) và 2 câu tự luận ngắn (mức độ phân tích)."</em></p>
+      <p>→ <strong>Nhận xét:</strong> Đây là prompt hiệu quả nhất cho việc học. Nó phân loại được cấp độ nhận thức (Bloom's Taxonomy), yêu cầu AI cung cấp cả giải thích (Rationale) và bắt buộc người học phải tư duy sâu hơn thay vì chỉ chọn đáp án đúng.</p>
+
+      <h3>📊 Bảng so sánh kết quả</h3>
+      <table>
+        <tr><th>Tiêu chí</th><th>Prompt Cơ bản</th><th>Prompt Cải tiến</th><th>Prompt Nâng cao</th></tr>
+        <tr><td>Độ chính xác</td><td>Trung bình, dễ lạc đề</td><td>Cao, bám sát yêu cầu</td><td><span class="modal-badge green">Rất cao, đúng ngữ cảnh</span></td></tr>
+        <tr><td>Định dạng</td><td>Văn bản thô, khó theo dõi</td><td>Có phân đoạn, dễ đọc</td><td><span class="modal-badge green">Cấu trúc chuyên nghiệp</span></td></tr>
+        <tr><td>Giá trị học tập</td><td>Thấp (cưỡi ngựa xem hoa)</td><td>Khá (nắm được ý chính)</td><td><span class="modal-badge green">Cao (hiểu sâu, tư duy phản biện)</span></td></tr>
+      </table>
+
+      <h3>🏆 Công thức cá nhân S-C-O-I</h3>
+      <ul>
+        <li><strong>S (Specific):</strong> Càng cụ thể càng tốt. Thay vì "viết code" → "viết hàm JavaFX xử lý sự kiện click chuột".</li>
+        <li><strong>C (Context):</strong> Cung cấp dữ liệu đầu vào. Nếu muốn tóm tắt, hãy dán nội dung văn bản vào và gán vai trò cho AI.</li>
+        <li><strong>O (Output):</strong> Quy định định dạng đầu ra (Bảng, Markdown, JSON, Danh sách gạch đầu dòng...).</li>
+        <li><strong>I (Iterate):</strong> Đừng mong đợi prompt đầu tiên sẽ hoàn hảo. Điều chỉnh dựa trên phản hồi của AI (ví dụ: "Giải thích lại bước 2 nhưng đơn giản hơn").</li>
+      </ul>
+      <hr class="divider">
+      <span class="modal-badge green">✓ 3 tác vụ · 9 prompt · 1 công thức S-C-O-I</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: Bài 4 - Hợp tác nhóm -->
+<div class="modal-overlay" id="modal4" onclick="closeModalOverlay(event, 'modal4')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">📄 Báo cáo Bài 4 · Mục 4.4</div>
+        <div class="modal-sub">Sử dụng công cụ hợp tác trực tuyến — Nhóm 17 · Vai trò TV4</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal4')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Họ và tên:</strong> Phạm Anh Đức &nbsp;|&nbsp; <strong>Nhóm:</strong> 17 &nbsp;|&nbsp; <strong>Ngày hoàn thành:</strong> 19/04/2026</p>
+
+      <h3>🎬 I. Giới thiệu dự án nhóm và vai trò cá nhân</h3>
+      <p>Dự án nhóm là <strong>sản xuất một video giáo dục ngắn (3–4 phút)</strong> với chủ đề <em>"Kỹ năng viết Prompt hiệu quả để tận dụng tối đa AI trong học tập"</em>. Video được thiết kế theo phong cách <strong>bản tin công nghệ</strong>: có phần dẫn chuyện, minh họa slide, hiệu ứng chuyển cảnh mượt mà, phụ đề đồng bộ và nhạc nền hiện đại.</p>
+      <p><strong>Vai trò TV4 – Video Production:</strong> Cắt ghép footage, chèn hiệu ứng (zoom, glitch, text animation), thêm phụ đề, color grading và mix âm thanh bằng CapCut + DaVinci Resolve. Đảm bảo video có phong cách riêng: logo góc màn hình, hiệu ứng text pop-up, transition nhanh.</p>
+
+      <h3>🛠️ II. 4 công cụ hợp tác đã sử dụng</h3>
+      <table>
+        <tr><th>Công cụ</th><th>Hiệu quả</th><th>Lý do nổi bật</th></tr>
+        <tr><td><strong>Trello</strong></td><td><span class="modal-badge green">Rất cao</span></td><td>Dễ theo dõi deadline, gắn tag, checklist rõ ràng. Không còn quên nhiệm vụ như khi dùng Excel cá nhân.</td></tr>
+        <tr><td><strong>Google Drive</strong></td><td><span class="modal-badge green">Xuất sắc</span></td><td>Đồng bộ realtime, lịch sử phiên bản, chia quyền view/edit chính xác. Tránh mất file như trước đây gửi USB.</td></tr>
+        <tr><td><strong>Google Docs</strong></td><td><span class="modal-badge">Cao</span></td><td>Soạn thảo kịch bản, comment trực tiếp. Cho phép toàn nhóm phản hồi cụ thể từng câu.</td></tr>
+        <tr><td><strong>Discord</strong></td><td><span class="modal-badge">Cao</span></td><td>Voice call + kênh #video-production. 7 lần thảo luận nhóm trong tuần.</td></tr>
+      </table>
+
+      <h3>📅 III. Timeline thực hiện (13–19/04/2026)</h3>
+      <ul>
+        <li><strong>13/04:</strong> Tạo Trello board "Dự án Video AI Prompt", Google Drive folder, kênh Discord #video-production.</li>
+        <li><strong>14–15/04:</strong> Nhận 12 clip thô từ TV1/TV2/TV3 qua Drive. Tổ chức: 00_Raw / 01_Edited / 02_Effects / 03_Subtitles / 04_Final. Trello: 30%.</li>
+        <li><strong>16–17/04:</strong> Dùng CapCut + DaVinci Resolve cắt ghép, chèn hiệu ứng, tạo phụ đề tiếng Việt. Upload draft 1 lên Drive → thông báo trên Discord → thảo luận 7 lần.</li>
+        <li><strong>18/04:</strong> Áp dụng góp ý (sửa phụ đề, cân chỉnh âm lượng), export Final + 2 bản dự phòng (1080p &amp; 4K). Trello: 100%.</li>
+        <li><strong>19/04:</strong> Tổng hợp báo cáo cá nhân.</li>
+      </ul>
+
+      <h3>⚡ IV. Thách thức &amp; Giải pháp</h3>
+      <ul>
+        <li><strong>File thô &gt;8GB:</strong> → Nén bằng HandBrake (giảm 60%), dùng Stream của Drive để preview nhanh mà không cần tải toàn bộ.</li>
+        <li><strong>Phụ đề lỗi chính tả:</strong> → Gửi file .srt qua Google Docs cho TV3 review, sửa trong 30 phút.</li>
+        <li><strong>Thành viên phản hồi chậm:</strong> → @mention cụ thể trên Trello + deadline rõ ràng + voice message nhắc lịch sự.</li>
+      </ul>
+      <p style="color:#3ecfa0"><strong>Kết luận:</strong> Nhờ 4 công cụ phối hợp chặt chẽ, nhóm hoàn thành sớm 1 ngày so với kế hoạch ban đầu.</p>
+      <hr class="divider">
+      <span class="modal-badge green">✓ Hoàn thành 100% · Sớm hơn deadline 1 ngày</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 6: Bài 6 - AI Ethics -->
+<div class="modal-overlay" id="modal6" onclick="closeModalOverlay(event, 'modal6')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">📄 Báo cáo Bài 6 · Mục 6.4</div>
+        <div class="modal-sub">Sử dụng AI có trách nhiệm và đạo đức trong học tập &amp; nghiên cứu</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal6')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Họ và tên:</strong> Phạm Anh Đức &nbsp;|&nbsp; <strong>Mã SV:</strong> 25023221</p>
+
+      <h3>🏛️ I. Nghiên cứu chính sách của trường về sử dụng AI</h3>
+      <h4>Tóm tắt các điểm chính trong chính sách</h4>
+      <ul>
+        <li><span class="modal-badge green">Được phép</span> <strong>Sử dụng AI như công cụ hỗ trợ:</strong> AI được phép sử dụng để tìm kiếm ý tưởng (brainstorming), lập dàn ý, dịch thuật, hoặc giải thích các khái niệm phức tạp.</li>
+        <li><span class="modal-badge red">Nghiêm cấm</span> <strong>Lạm dụng và sao chép:</strong> Yêu cầu AI viết toàn bộ bài luận, giải bài tập và nộp dưới tên mình bị coi là hành vi gian lận học thuật (đạo văn).</li>
+        <li><span class="modal-badge orange">Bắt buộc</span> <strong>Minh bạch và trích dẫn:</strong> Sinh viên bắt buộc phải khai báo nếu có sử dụng AI, kèm theo phần phụ lục ghi rõ các câu lệnh (prompts) đã dùng.</li>
+      </ul>
+      <h4>Phân tích và nhận định cá nhân</h4>
+      <p>Chính sách của trường mang tính định hướng giáo dục rất cao. Thay vì chối bỏ sự phát triển của công nghệ, trường đang dạy sinh viên cách "sống chung" và làm chủ nó. Việc bắt buộc trích dẫn prompt là một bước đi sáng suốt, buộc sinh viên phải minh bạch về "nỗ lực nhận thức" của bản thân so với công sức của máy móc.</p>
+
+      <h3>📝 II. Thực hiện nhiệm vụ học tập với sự hỗ trợ của AI</h3>
+      <h4>Nhiệm vụ đã chọn</h4>
+      <p>Tổng hợp tài liệu và lập dàn ý cho bài luận môn Kinh tế Môi trường với chủ đề: <em>"Tác động của hạn mặn đến kinh tế nông nghiệp tại Đồng bằng sông Cửu Long và giải pháp thích ứng."</em></p>
+      <h4>Quá trình thực hiện &amp; Prompt đã dùng</h4>
+      <p><strong>Bước 1 — Brainstorming:</strong> <em>"Hãy đóng vai một chuyên gia kinh tế môi trường. Liệt kê 3 tác động kinh tế lớn nhất của tình trạng xâm nhập mặn đối với người nông dân trồng lúa ở Đồng bằng sông Cửu Long. Cung cấp thông tin ngắn gọn, súc tích."</em></p>
+      <p>→ Đầu ra AI: (1) Suy giảm năng suất và sản lượng lúa; (2) Tăng chi phí sản xuất (bơm nước ngọt, cải tạo đất); (3) Rủi ro nợ nần và chuyển dịch lao động.</p>
+      <h4>Đánh giá, chỉnh sửa và tích hợp</h4>
+      <p>Dàn ý của AI rất logic ở phần "Tác động". Tuy nhiên, ở phần "Giải pháp", AI đưa ra các ý tưởng quá chung chung (như "tuyên truyền", "đầu tư công nghệ") mà thiếu đi tính đặc thù của Việt Nam.</p>
+      <p><strong>Can thiệp cá nhân:</strong> Giữ lại cấu trúc phần Tác động vì nó hợp lý. Ở phần Giải pháp, tự tra cứu tài liệu từ Bộ NN&amp;PTNT và thay thế bằng giải pháp thực tiễn hơn: <em>Mô hình lúa-tôm sinh thái, Phát triển giống lúa chịu mặn ST24/ST25.</em></p>
+      <h4>Trích dẫn AI minh bạch (APA)</h4>
+      <p><em>OpenAI. (2024). ChatGPT (Phiên bản GPT-4) [Mô hình ngôn ngữ lớn]. https://chat.openai.com. (Sử dụng vào ngày 05/05/2026 để hỗ trợ lên ý tưởng cấu trúc dàn bài).</em></p>
+
+      <h3>🧭 III. 6 Nguyên tắc cá nhân về sử dụng AI trách nhiệm</h3>
+      <ul>
+        <li>🎯 <strong>Nguyên tắc 1 — "Tôi là người cầm lái":</strong> AI chỉ là Co-pilot. Tôi chịu trách nhiệm cuối cùng. Tuyệt đối không nộp sản phẩm sao chép 100% từ AI.</li>
+        <li>✍️ <strong>Nguyên tắc 2 — "Viết nháp trước, hỏi AI sau":</strong> Tự lên dàn ý và viết bản nháp thô trước, rồi mới nhờ AI sửa lỗi ngữ pháp hoặc gợi ý từ vựng tốt hơn.</li>
+        <li>🔍 <strong>Nguyên tắc 3 — "Luôn kiểm chứng" (Zero-Trust):</strong> Mọi số liệu, sự kiện lịch sử, tài liệu tham khảo do AI cung cấp (Hallucination - Ảo giác AI) đều phải cross-check bằng Google Scholar hoặc website chính thống.</li>
+        <li>📢 <strong>Nguyên tắc 4 — "Minh bạch tuyệt đối":</strong> Chủ động khai báo việc sử dụng AI trong mọi bài tập. Trích dẫn đầy đủ prompt và công cụ theo đúng quy định của trường.</li>
+        <li>🔒 <strong>Nguyên tắc 5 — "Bảo mật dữ liệu":</strong> Không bao giờ nhập thông tin cá nhân, dữ liệu nghiên cứu chưa được công bố của giảng viên vào cửa sổ chat của AI.</li>
+        <li>🧠 <strong>Nguyên tắc 6 — "Học cách đặt câu hỏi" (Prompt Engineering):</strong> Đầu tư thời gian học cách viết câu lệnh rõ ràng, chi tiết để AI hiểu đúng ngữ cảnh, thay vì phụ thuộc vào câu lệnh lười biếng, chung chung.</li>
+      </ul>
+
+      <h3>⚖️ IV. Phân tích các vấn đề đạo đức trong việc sử dụng AI</h3>
+      <h4>1. Ranh giới giữa hỗ trợ hợp lý và gian lận học thuật</h4>
+      <p>Ranh giới này nằm ở chữ <strong>Quyền tác giả (Authorship)</strong> và <strong>Nỗ lực nhận thức (Cognitive effort)</strong>. Hỗ trợ hợp lý là khi dùng AI như người thủ thư hoặc người bạn phản biện — quá trình ra quyết định cuối cùng vẫn thuộc về người học. Gian lận là khi AI đảm nhận vai trò của "tác giả".</p>
+      <h4>2. Vấn đề bản quyền và trích dẫn</h4>
+      <p>Các mô hình AI được huấn luyện trên hàng tỷ văn bản của con người, trong đó có cả tài liệu có bản quyền. Khi AI tạo ra văn bản mới, nó không trích dẫn được nguồn gốc cụ thể của từng câu chữ.</p>
+      <h4>3. Tác động đến quá trình học tập và phát triển kỹ năng</h4>
+      <p>Việc lạm dụng AI tạo ra hội chứng "teo cơ não" (deskilling). Nếu luôn nhờ AI tóm tắt tài liệu, sinh viên sẽ mất đi khả năng đọc hiểu nhanh và chắt lọc thông tin.</p>
+      <hr class="divider">
+      <span class="modal-badge green">✓ Hoàn thành · 6 nguyên tắc · Trích dẫn APA chuẩn</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOverlay(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+});
+</script>
 </body>
 </html>
